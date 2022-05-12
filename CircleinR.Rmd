@@ -1,0 +1,16 @@
+num_dart <- 1000
+num_darts_in_circle <- 0
+
+x <- runif(n = num_dart, min = -1, max = 1)
+y <- runif(n = num_dart, min = -1, max = 1)
+
+sum_squares <- x^2 + y^2
+indexes_darts_in_circles <- which(sum_squares <= 1)
+num_darts_in_circle <- length(indexes_darts_in_circles)
+
+print(4 * num_darts_in_circle / num_dart)
+for(i in 1:num_dart) {
+  plot(x[i:1],y[i:1],xlim=c(-1,1),ylim=c(-1,1))
+  points(x[i],y[i],col="red")
+  Sys.sleep(0.1)
+}
